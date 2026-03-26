@@ -70,7 +70,14 @@ let player = document.getElementById("audioPlayer");
 
 function playSound(file) {
   player.src = file;
-  player.play();
+  player.volume = 0.5;
+
+  player.play().then(() => {
+    console.log("Playing...");
+  }).catch(error => {
+    alert("Click again to play sound 🔊");
+    console.log(error);
+  });
 }
 
 function stopSound() {
