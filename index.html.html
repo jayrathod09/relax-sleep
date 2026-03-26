@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Relax & Sleep</title>
+
+<style>
+body {
+  background: #0a0f1f;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+button {
+  padding: 15px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #1e90ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00bfff;
+}
+
+.container {
+  margin-top: 40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🧠 Relax & Sleep Frequencies</h1>
+
+<div class="container">
+
+<h3>Choose Frequency</h3>
+<button onclick="playSound('alpha.mp3')">Relax (Alpha)</button>
+<button onclick="playSound('theta.mp3')">Meditation</button>
+<button onclick="playSound('delta.mp3')">Deep Sleep</button>
+
+<h3>Nature Sounds</h3>
+<button onclick="playSound('rain.mp3')">Rain</button>
+<button onclick="playSound('ocean.mp3')">Ocean</button>
+
+<h3>Timer</h3>
+<button onclick="setTimer(10)">10 Min</button>
+<button onclick="setTimer(20)">20 Min</button>
+<button onclick="setTimer(30)">30 Min</button>
+
+<br><br>
+<button onclick="stopSound()">Stop</button>
+
+</div>
+
+<audio id="audioPlayer" loop></audio>
+
+<script>
+let player = document.getElementById("audioPlayer");
+
+function playSound(file) {
+  player.src = file;
+  player.play();
+}
+
+function stopSound() {
+  player.pause();
+}
+
+function setTimer(min) {
+  setTimeout(() => {
+    player.pause();
+    alert("Timer Finished 😴");
+  }, min * 60000);
+}
+</script>
+
+</body>
+</html>
